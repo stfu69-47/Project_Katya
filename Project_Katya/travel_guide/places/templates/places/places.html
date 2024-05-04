@@ -1,0 +1,31 @@
+{% extends 'places/base.html' %}
+
+{% block content %}
+<ul>
+    {% for p in posts %}
+    <li>
+        <h2>{{p.title}}</h2>{{ p.content|truncatechars:50 }}
+        <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать запись</a></p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block navigation %}
+{% if page_obj.has_other_pages %}
+<nav class="list-pages">
+    <ul>
+        {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+        <li class="page-num page-num-selected">{{ p }}</li>
+        {% else %}
+        <li class="page-num">
+            <a href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}

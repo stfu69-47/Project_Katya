@@ -1,0 +1,12 @@
+{% extends 'places/base.html' %}
+
+{% block content %}
+<p>Рады приветствовать на сайте путеводителя по Костромской области!</p>
+{% if form %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">Отправить </button></p>
+</form>
+{% endif %}
+{% endblock %}

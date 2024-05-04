@@ -1,0 +1,15 @@
+{% extends 'places/base.html' %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+{{ post.content|linebreaks }}
+{% if person %}
+<h2>Известные люди:</h2>
+{% for per in person %}
+<p><b>{{ per.name }}</b> - {{ per.biography }}</p>
+{% endfor %}
+{% endif %}
+{% if post.photo %}
+<p><img class="img-article-left" src="{{ post.photo.url }}"></p>
+{% endif %}
+{% endblock %}

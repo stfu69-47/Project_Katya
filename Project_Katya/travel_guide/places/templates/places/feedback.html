@@ -1,0 +1,7 @@
+{% extends 'places/base.html' %}
+
+{% block content %}
+{% for f in feedback %}
+<p><b>{{ f.title }}</b> - {{ f.content }}<br></p>
+{% endfor %}
+{% endblock %}

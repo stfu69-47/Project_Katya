@@ -1,0 +1,14 @@
+{% extends 'places/base.html' %}
+
+{% block content %}
+<h2>Рады привествовать Вас на сайте путеводителя по Костромской области! Посетите Боговарово обязательно!</h2>
+<form method="get" action='post/{{place_url}}'>
+    <div class="form-error">{{ place_filter.form.non_fields_errors }}</div>
+    {% for f in place_filter.form %}
+    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <button type="submit">Поиск</button>
+</form>
+
+{% endblock %}
